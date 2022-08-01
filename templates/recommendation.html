@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Friend Recommendation</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Friend recommendations</h1>
+    </div>
+    {% if ret %}
+    <h3>First Name | Last Name | Email</h3>
+        <ul>
+        {% for name in ret %}
+            <li>{{name[0]}} | {{name[1]}} | {{name[2]}}<br></li> 
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+<li><a href='/'>Home</a></li>
+</html>

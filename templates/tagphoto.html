@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tag your photos</title>
+</head>
+<body>
+    <h1>Enter tag id and photo id to tag your photos</h1>
+    <form method="post" action="/tagphoto">
+        <label for="tagid">Enter tag id:</label>
+        <input type="tagid" name="tagid" required='true' /><br />
+        <label for="photoid">Enter photo id:</label>
+        <input type="photoid" name="photoid" required='true' /><br />
+        <input type="submit" value="Tag" />
+    </form>
+    {% if tags %}
+    <h2>All availiable tags</h2>
+        <ul>
+        {% for tag in tags %}
+            <li>{{tag[0]}} | ID: {{tag[1]}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if photos %}
+    <h2>Here are your photos</h2>
+        <ul>
+        {% for photo in photos %}
+            <li>{{photo[2]}} | Photo id: {{photo[1]}}<br>
+            <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+<li><a href='/'>Home</a></li>
+</html>

@@ -1,0 +1,94 @@
+PA1 - Part 2 Grade Criteria (Total score is out of 100)
+
+Ask them open the website, the code and the WorkBench at the same time so that you can see the changes instantly in the backend database
+
+Graders choose about 15 testcases to grade the work (use cases marked with "***" are required).
+
+Graders open the Gradescope at the same time to grade their work. Graders can record failed testcases in the comments and adjust the points. 
+
+In recommendation section, choose at least one function and ask them for more detailed descriptions.
+
+++++++++++++++++++++++++++++++++++++++++++++++
+5 Types of Use cases (85 pts, more details are as follows):
+==============================================
+User management (15 pts)
+==============================================
+_____  *** Becoming a registered user (5 pts)  
+	testcase1: ask them to register a new account and show that the User table does have a new record (-5 pts, if there is no new record)
+	testcase2: ask them to register an account using the same email that has been registered just now (-3 pts, if this registration succeeds)
+
+_____  *** Adding and Listing Friends (5 pts)
+	testcase1: add a new friend and check the table in database does have a new record (-5 pts if there is no new record)
+	testcase2: friends list (-2 pts, if  this function is not implemented)
+	[optional]: ask them to describe the friendship table (whether is single direction or mutual and how it affects the searching and adding) (-2 pts if they cannot describe the design accurately)
+
+_____  User activity (5 pts)
+	testcase1: ask them to show top-10 most contributed users (-5 pts if this function is not implemented)
+	[optional]: check the SQL query manually and ask them to explain how this works (-2 pts if they cannot describe the design accurately)
+
+
+==============================================
+Album and photo management (15 pts)
+==============================================
+____  Photo and album browsing (7 pts)
+	testcase1: ask them to show if users can browse the photos and albums (-7 pts if this function is not implemented)
+	tesecase2: ask them to log in as an anonymous user and browse the photos and albums (-3 pts, if this function is not implemented)
+
+____  Photo and album creating (8 pts)
+	*** testcase1: ask them to create an album and show that the Album table does have a new record (-2 pts if this function is not implemented)
+	testcase2: ask them to delete an album and show that the Album table does remove the record (-2 pts if this function is not implemented), also check if the photos inside this album are purged (-2 pts if this function is not implemented)
+	testcase3: ask them to delete a photo and show that the Photo table does remove a record (-2 pts if this function is not implemented)
+
+
+==============================================
+Tag management (20 pts)
+==============================================
+____  Viewing your photos by tag name (5 pts)
+	testcase1: ask them to show a user's photos by selecting a tag name (-5 pts if this function is not implemented)
+
+____  Viewing all photos by tag name (5 pts)
+	testcase1: ask them to show all photos by selecting a tag name (-5 pts if this function is not implemented)
+
+____  *** Viewing the most popular tags (5 pts)
+	testcase1: ask them to show the most popular tags (-5 pts if this function is not implemented)
+	testcase2: listed tags can be selected (they are clickable or there is an input to specify the tag) to show photos (-2 pts if this function is not implemented)
+	[optional]: add photos to a tag so that there is a tie and in this case, more than one tag should be returned
+
+____  *** Photo search (5 pts)
+	testcase1: ask them to search photos by one tag (-3 pts if this function is not implemented)
+	testcase2: ask them to search photos by two or more tags, conjunction testcase (-2 pts if this function is not implemented)	
+	
+
+
+==============================================
+Comments (15 pts)
+==============================================
+____  Leaving comments (5 pts)
+	testcase1: ask them to leave comments and show the comment table does have a new record (-5 pts if this function is not implemented)
+	testcase2: check whether a user can leave comments to her/his own photos (-2pts if s/he can)
+
+____  Like functionality (5 pts)
+	testcase1: after a user likes a photo, the Like table should have a new record (-5 pts if this function is not implemented)
+	testcase2: if #likes of a photo is not shown, -2 pts
+
+____  *** Search on comments (5 pts)
+	testcase1: ask them to search users based on a comment (-5 pts if this function is not implemented)
+	testcase2: check the SQL command manually to see whether returned users are sorted in decending order (-2 pts if they are not ordered)
+		sample: SELECT userID,COUNT(*) AS ccount FROM Comment WHERE text='[comment]' GROUP BY userID ORDER BY ccount DESC
+
+
+==============================================
+Recommendations (20 pts) 
+==============================================
+____  Friend recommendation (10 pts)
+	testcase1: ask them to show the recommendation functionality (-10 pts if this function is not implemented)
+	[optional]: ask them to explain how they implement this (-5 pts if they cannot describe the design accurately)
+
+____  'You-may-also-like' functionality (10 pts)
+	testcase1: ask them to show the recommendation functionality (-10 pts if this function is not implemented)
+	[optional]: ask them to explain how they implement this (-5 pts if they cannot describe the design accurately)
+
+
++++++++++++++++++++++++++++++++++++++++++++++
+Report (15 pts):
+==============================================

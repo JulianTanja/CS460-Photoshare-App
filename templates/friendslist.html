@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Friends list</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Friends list</h1>
+    </div>
+    {% if names %}
+    <h3>First Name | Last Name | Email</h3>
+        <ul>
+        {% for name in names %}
+            <li>{{name[0]}} | {{name[1]}} | {{name[2]}}<br></li> 
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+<li><a href='/'>Home</a></li>
+
+</html>

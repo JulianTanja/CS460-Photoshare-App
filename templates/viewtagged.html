@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Select tag</title>
+</head>
+<body>
+    <h1>Enter tag id to view tagged photos</h1>
+    <form method="post" action="/viewtaggedU">
+        <label for="tagid">Enter tag id:</label>
+        <input type="tagid" name="tagid" required='true' /><br />
+        <input type="submit" value="Search" />
+    </form>
+    {% if tags %}
+    <h2>All availiable tags</h2>
+        <ul>
+        {% for tag in tags %}
+            <li>{{tag[0]}} | ID: {{tag[1]}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+<li><a href='/'>Home</a></li>
+</html>

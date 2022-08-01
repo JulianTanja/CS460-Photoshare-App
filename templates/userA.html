@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Photos and Albums</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Select album to browse or delete</h1>
+    </div>
+    <form method="post" action="/userA">
+        <label for="name">Enter album ID:</label>
+        <input type="name" name="name" required='true' /><br />
+        <input type="submit" value="Select" />
+    </form>
+
+    {% if names %}
+    <h3>Album Name | Creation Date | Album ID</h3>
+        <ul>
+        {% for name in names %}
+            <li>{{name[1]}} | {{name[2]}} | {{name[0]}}<br></li> 
+            <form action="/deleteAlbum/" method="post">
+                <input type="hidden" name="id" value= {{name[0]}}>
+                <button name="deleteAlbum" type="submit">Delete Album</button>
+            </form>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+</body>
+<li><a href='/'>Home</a></li>
+
+</html>

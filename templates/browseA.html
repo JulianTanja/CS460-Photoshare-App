@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Browse Albums</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Select album to browse</h1>
+    </div>
+    <form method="post" action="/browseA">
+        <label for="name">Enter album ID:</label>
+        <input type="name" name="name" required='true' /><br />
+        <input type="submit" value="Select" />
+    </form>
+
+    {% if names %}
+    <h3>Album Name | Creation Date | Album ID</h3>
+        <ul>
+        {% for name in names %}
+            <li>{{name[0]}} | {{name[1]}} | {{name[2]}}<br></li> 
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+</body>
+<li><a href='/'>Home</a></li>
+
+</html>

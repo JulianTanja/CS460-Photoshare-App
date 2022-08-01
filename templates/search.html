@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Search for a user below</h1>
+    </div>
+    <div id="content">
+        <form method="post" action="{{ url_for('search_users') }}">
+            <label for="search">Search users:</label>
+            <input type="search" name="search" /><br />
+            <input type="submit" />
+        </form>
+    </div>
+    {% if names %}
+    <h2>Search results</h2>
+    <h3>First Name | Last Name | Email</h3>
+        <ul>
+        {% for name in names %}
+            <li>{{name[0]}} | {{name[1]}} | {{name[2]}}<br></li> 
+            <form action="/addfriend/" method="post">
+                <input type="hidden" name="id" value= {{name[3]}}>
+                <button name="addfriend" type="submit">Add Friend</button>
+            </form>
+        {% endfor %}
+        </ul>
+
+    {% endif %}
+    <li><a href='/'>Home</a></li>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Users by Comments</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Search users by comments</h1>
+    </div>
+    <form method="post" action="/searchC">
+        <label for="comment">Enter comment:</label> 
+        <input type="comment" name="comment" required='true' /><br />
+        <input type="submit" value="Search" />
+    </form>
+    {% if ret %}
+    <h2>Search results</h2>
+    <h3>First Name | Last Name | Email | Their comment</h3>
+        <ul>
+        {% for name in ret %}
+            <li>{{name[0]}} | {{name[1]}} | {{name[2]}}: {{name[3]}}<br></li> 
+        {% endfor %}
+        </ul>
+
+    {% endif %}
+</body>
+<li><a href='/'>Home</a></li>
+</html>

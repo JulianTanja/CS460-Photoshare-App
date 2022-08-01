@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Photos</title>
+</head>
+<body>
+    {% if photos %}
+    <h2>Here are the photos in the selected album</h2>
+        <ul>
+        {% for photo in photos %}
+            <li>{{photo[2]}}<br>
+            <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+            <form method="post" action="/leaveComment/">
+                <label for="comment">Leave Comment:</label>
+                <input type="comment" name="comment" required='false' /><br />
+                <input type="hidden" name="id" value= {{photo[1]}}>
+                <input type="hidden" name="albumid" value= {{album}}>
+                <input type="submit" value="Comment" />
+            </form>
+            <form method="post" action="/likePhoto/">
+                <input type="hidden" name="id" value= {{photo[1]}}>
+                <input type="hidden" name="albumid" value= {{album}}>
+                <input type="submit" value="Like" />
+            </form>
+            {% if likes %}
+                {% for like in likes %}
+                    <p>#Likes: {{like[0]}}</p> 
+                {% endfor %}
+            {% endif %}
+            <p>Comments: </p> 
+            <ul>
+            {% if comments %}
+                {% for comment in comments %}
+                    <li>{{comment[2]}} : {{comment[0]}} {{comment[1]}}<br>
+                {% endfor %}
+            {% endif %}
+            </ul>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+<li><a href='/'>Home</a></li>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Photos</title>
+</head>
+<body>
+    {% if photos %}
+    <h2>Here are the photos in the selected album</h2>
+        <ul>
+        {% for photo in photos %}
+            <li>{{photo[2]}}<br>
+            <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li> 
+            <form action="/deletePhoto/" method="post">
+                <input type="hidden" name="id" value= {{photo[1]}}>
+                <button name="deletePhoto" type="submit">Delete Photo</button>
+            </form>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+<li><a href='/'>Home</a></li>
+
+</html>
